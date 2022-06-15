@@ -1,5 +1,7 @@
 <?php
 
+namespace CataasApiPhp;
+
 /**
  * Cat as a service API wrapper for PHP
  */
