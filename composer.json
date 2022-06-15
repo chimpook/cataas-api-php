@@ -1,0 +1,19 @@
+{
+    "name": "chimpook/cataas-api-php",
+    "description": "Cat as a service API wrapper for PHP.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Chimpook Virtuch",
+            "email": "chimpook@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "chimpook\\cataas-api-php\\": ""
+        }
+    }
+}
