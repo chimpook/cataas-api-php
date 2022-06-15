@@ -17,17 +17,28 @@ $cataas->get();
 ### Usage variants from cataas.com:
 
 $cataas->tag('cute')->html()->get();
+
 $cataas->tag('cute')->get();
+
 $cataas->gif()->get();
+
 $cataas->says('Hello, human!')->get();
+
 $cataas->says('Hello, human!')->size(22)->color('green')->get();
+
 $cataas->type('sq')->get();
+
 $cataas->filter('negative')->get();
+
 $cataas->width(360)->get();
+
 $cataas->height(240)->get();
+
 $cataas->gif()->says('Hello!')->filter('sepia')->color('orange')->size(40)->type('or')->get();
 
+
 $cataas->api()->cats()->tags('cute,eyes')->skip(0)->limit(10)->get();
+
 $cataas->api()->tags()->get();
 
 ### Console oneliners
