@@ -3,7 +3,7 @@
 /**
  * Cat as a service API wrapper for PHP
  */
-class Cataas
+class CataasApiPhp
 {
     protected const DEFAULT_CATAAS_URL = "https://cataas.com";
     protected string $cataas_url;
@@ -25,31 +25,31 @@ class Cataas
         return new static($cataas_url);
     }
 
-    public function tag(string $tag): Cataas
+    public function tag(string $tag): CataasApiPhp
     {
         $this->commands['tag'] = $tag;
         return $this;
     }
 
-    public function gif(): Cataas
+    public function gif(): CataasApiPhp
     {
         $this->commands['gif'] = true;
         return $this;
     }
 
-    public function api(): Cataas
+    public function api(): CataasApiPhp
     {
         $this->mode = 'api';
         return $this;
     }
 
-    public function says(string $text): Cataas
+    public function says(string $text): CataasApiPhp
     {
         $this->commands['says'] = $text;
         return $this;
     }
 
-    public function cats(): Cataas
+    public function cats(): CataasApiPhp
     {
         $this->commands['cats'] = true;
         return $this;
@@ -60,7 +60,7 @@ class Cataas
      * With 'cats' - it is a tags filter, like this: /api/cats?tags=cute,eyes
      * Without 'cats' - it is a command to get the whole list of all possible tags, like this: /api/tags
      */
-    public function tags(string $tags = null): Cataas
+    public function tags(string $tags = null): CataasApiPhp
     {
         if (!empty($this->commands['cats'])) {
             $this->parameters['tags'] = $tags;    
@@ -71,13 +71,13 @@ class Cataas
         return $this;
     }
 
-    public function size(int $size): Cataas
+    public function size(int $size): CataasApiPhp
     {
         $this->parameters['size'] = $size;
         return $this;
     }
 
-    public function color(string $color): Cataas
+    public function color(string $color): CataasApiPhp
     {
         $this->parameters['color'] = $color;
         return $this;
@@ -87,7 +87,7 @@ class Cataas
      * The cataas.com provide those types: 
      * original (or) | square (sq) | medium (md) | small (sm)
      */
-    public function type(string $type): Cataas
+    public function type(string $type): CataasApiPhp
     {
         $this->parameters['type'] = $type;
         return $this;
@@ -100,43 +100,43 @@ class Cataas
      * There is no need to load cataas.com with heavy tasks, 
      * because it is not so powerful and hangs from time to time
      */
-    public function filter(string $filter): Cataas
+    public function filter(string $filter): CataasApiPhp
     {
         $this->parameters['filter'] = $filter;
         return $this;
     }
 
-    public function width(int $width): Cataas
+    public function width(int $width): CataasApiPhp
     {
         $this->parameters['width'] = $width;
         return $this;
     }
 
-    public function height(int $height): Cataas
+    public function height(int $height): CataasApiPhp
     {
         $this->parameters['height'] = $height;
         return $this;
     }
 
-    public function json(): Cataas
+    public function json(): CataasApiPhp
     {
         $this->parameters['json'] = 'true';
         return $this;
     }
 
-    public function html(): Cataas
+    public function html(): CataasApiPhp
     {
         $this->parameters['html'] = 'true';
         return $this;
     }
 
-    public function skip(int $number = 0): Cataas
+    public function skip(int $number = 0): CataasApiPhp
     {
         $this->parameters['skip'] = $number;
         return $this;
     }
 
-    public function limit(int $number): Cataas
+    public function limit(int $number): CataasApiPhp
     {
         $this->parameters['limit'] = $number;
         return $this;
