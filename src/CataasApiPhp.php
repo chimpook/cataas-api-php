@@ -169,6 +169,13 @@ class CataasApiPhp
         return $this->cataas_url . $this->cataas_path;
     }
 
+    /**
+     * Retrieves a cat from cataas service and saves it as a file or just lets it out 
+     * 
+     * @param string $file_path The path of the file for saving a cat to
+     * @throws \Exception If something wrong with a file or with the cataas service
+     * @return mixed
+     */
     public function get(string $file_path = null)
     {
         $url = $this->getUrl();
@@ -185,6 +192,9 @@ class CataasApiPhp
             });
         } else {
             $fp = fopen($file_path, 'wb');
+            if (empty($fp)) {
+                throw new \Exception('There is no place for a cat.. Cannot create the file : ' . $error_msg);
+            }
             curl_setopt($ch, CURLOPT_FILE, $fp);
         }
 
@@ -197,7 +207,7 @@ class CataasApiPhp
         }
 
         if (!empty($error_msg)) {
-            throw new Exception('Cat not found! Cannot load the file from the cataas service : ' . $error_msg);
+            throw new \Exception('There is no cat in this dark room! Cannot load the file from the cataas service : ' . $error_msg);
         }
     }
 
